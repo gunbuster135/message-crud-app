@@ -1,0 +1,29 @@
+curl -X POST \
+  http://localhost:8080/message \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'postman-token: 50aba2f7-1084-f906-440b-b56fc22225ef' \
+  -d '{
+	"id": 5,
+	"message":"hello"
+}'
+
+
+curl -X PUT \
+  http://localhost:8080/message/1 \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'postman-token: dd5ddd73-db5e-7b4e-ccd6-beb40a5f5689' \
+  -d '{
+	"message":"helloupdatering"
+}'
+
+curl -X DELETE \
+  http://localhost:8080/message/1 \
+  -H 'cache-control: no-cache' \
+  -H 'postman-token: 645c4590-60f3-f8d4-bd5f-283161d018c4'
+
+curl -X GET \
+  http://localhost:8080/message \
+  -H 'cache-control: no-cache' \
+  -H 'postman-token: 45ea3f0b-7b46-280f-816f-2fbe9ec7c53c'
