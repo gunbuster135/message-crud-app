@@ -113,4 +113,18 @@ __GET /message__
   "message": "Succesfully retrieved all messages!"
 }
 ```
+
+
+__Error Response__
+
+A error is returned if e.g no message exists when calling GET /message/{id}
+
+Example response
+
+```json
+{
+  "status_code": 400,
+  "message": "Failed to find a message with the following id: 1"
+}
+```
  

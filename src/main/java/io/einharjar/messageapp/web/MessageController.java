@@ -23,6 +23,11 @@ public class MessageController {
         this.messageService = messageService;
     }
 
+    /**
+     * Endpoint for creating a message
+     * @param messageCreate Message DTO for creating a message
+     * @return A ResponseEntity that wraps a Response containing the result
+     */
     @PostMapping(value = "/message", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Response<Message.Shallow>> createMessage(@RequestBody @Validated Message.Create messageCreate) {
         Optional<Message.Shallow> shallowOptional = messageService.createMessage(messageCreate);
@@ -38,6 +43,12 @@ public class MessageController {
         return badRequest(response);
     }
 
+    /**
+     * Endpoint for updating a message
+     * @param updateMessage Message DTO for updating a message
+     * @param id Primary key of message
+     * @return A ResponseEntity that wraps a Response containing the result
+     */
     @PutMapping(value = "/message/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Response<Message.Shallow>> updateMessage(@RequestBody @Validated Message.Update updateMessage,
                                                      @PathVariable(value = "id") Long id) {
@@ -54,6 +65,11 @@ public class MessageController {
         return badRequest(response);
     }
 
+    /**
+     * Endpoint for deleting a message
+     * @param id Primary key of a message
+     * @return A ResponseEntity with only a message and a status code, no result
+     */
     @DeleteMapping(value = "/message/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Response<Message.Shallow>> deleteMessage(@PathVariable(value = "id") Long id){
         Response<Message.Shallow> response = new Response<>();
@@ -67,6 +83,11 @@ public class MessageController {
         return badRequest(response);
     }
 
+    /**
+     * Endpoint for retrieving a specific message
+     * @param id Primary key of a message
+     * @return A ResponseEntity wrapping the Response containing the result message
+     */
     @GetMapping( value = "/message/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Response<Message.Shallow>> getMessage(@PathVariable(value = "id") Long id){
         Optional<Message.Shallow> messageOptional = messageService.getMessage(id);
@@ -82,6 +103,10 @@ public class MessageController {
         return badRequest(response);
     }
 
+    /**
+     * Retrieve all exisisting messages in the DB
+     * @return A list containing the messages
+     */
     @GetMapping(value = "/message", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Response<List<Message.Shallow>>> getAllMessages(){
         List<Message.Shallow> messageList = messageService.getAllMessages();
