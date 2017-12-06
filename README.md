@@ -6,16 +6,16 @@ Create a new message with e.g following body
 
 Example request body
 
-`
+```json
 {
  	"id": 1,
 	"message":"hello"
 }
- `
+```
  
 Example response 
  
-`
+```json
 {
    "data": {
      "id": 1,
@@ -24,7 +24,7 @@ Example response
    "status_code": 200,
    "message": "Succesfully persisted message"
 }
-`
+```
  
  __PUT /message/{id}__
  
@@ -33,17 +33,17 @@ Example response
  
  Example request body:
  
- 
- `
- {
- 	"message":"hello_update"
- }
-  `
+
+```json
+{
+  "message":"hello_update"
+}
+```
   
 Example Response
 
 
-`
+```json
 {
   "data": {
     "id": 1,
@@ -52,7 +52,7 @@ Example Response
   "status_code": 200,
   "message": "Succesfully updated message"
 }
-`
+```
 
   
   
@@ -63,12 +63,12 @@ Example Response
  
  Example response
  
-` 
+```json
 {
    "status_code": 200,
    "message": "Succesfully deleted message with id: 1"
 }
-`
+```
 
 __GET /message/{id}__
  
@@ -76,7 +76,7 @@ __GET /message/{id}__
   
  Example response
 
-` 
+```json
 {
   "data": {
     "id": 1,
@@ -85,7 +85,7 @@ __GET /message/{id}__
   "status_code": 200,
   "message": "Succesfully retrieved message with id: 1"
 }
-`
+```
 
 __GET /message__
  
@@ -93,7 +93,7 @@ __GET /message__
   
  Example response
 
-` 
+```json
 {
   "data": [
     {
@@ -112,5 +112,5 @@ __GET /message__
   "status_code": 200,
   "message": "Succesfully retrieved all messages!"
 }
-`
+```
  
