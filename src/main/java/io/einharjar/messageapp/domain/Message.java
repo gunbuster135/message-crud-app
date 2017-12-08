@@ -1,7 +1,9 @@
 package io.einharjar.messageapp.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Entity;
@@ -13,6 +15,8 @@ import javax.validation.constraints.NotNull;
  */
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Message {
     @Id
     private Long id;
@@ -45,6 +49,8 @@ public class Message {
      * DTO for message entity
      */
     @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
     public static class Shallow {
         private Long id;
         private String message;
@@ -54,6 +60,8 @@ public class Message {
      * DTO for use when creating a new message from scratch
      */
     @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
     public static class Create {
         @NotNull
         @JsonProperty("id")
@@ -67,6 +75,8 @@ public class Message {
      * DTO for use when updating a existing message
      */
     @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
     public static class Update {
         @NotBlank
         private String message;
